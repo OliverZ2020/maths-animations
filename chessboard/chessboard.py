@@ -55,7 +55,23 @@ class FlipCounters(Scene):
         c23b = Circle(radius=r, color=BLACK, fill_opacity=1)
         c23w = Circle(radius=r, color=WHITE, fill_opacity=1)
         b23 = Square(side_length=l, color=BLACK)
-                        
+        
+        c30b = Circle(radius=r, color=BLACK, fill_opacity=1)
+        c30w = Circle(radius=r, color=WHITE, fill_opacity=1)
+        b30 = Square(side_length=l, color=BLACK)
+
+        c31b = Circle(radius=r, color=BLACK, fill_opacity=1)
+        c31w = Circle(radius=r, color=WHITE, fill_opacity=1)
+        b31 = Square(side_length=l, color=BLACK)
+
+        c32b = Circle(radius=r, color=BLACK, fill_opacity=1)
+        c32w = Circle(radius=r, color=WHITE, fill_opacity=1)
+        b32 = Square(side_length=l, color=BLACK)
+
+        c33b = Circle(radius=r, color=BLACK, fill_opacity=1)
+        c33w = Circle(radius=r, color=WHITE, fill_opacity=1)
+        b33 = Square(side_length=l, color=BLACK)
+
         # Relative Positions
         c01b.next_to(c11b, DOWN, buff=0.5)
         c00b.next_to(c01b, LEFT, buff=0.5)
@@ -68,6 +84,10 @@ class FlipCounters(Scene):
         c22b.next_to(c21b, RIGHT, buff=0.5)
         c13b.next_to(c12b, RIGHT,buff= 0.5)
         c23b.next_to(c13b, UP, buff=0.5)
+        c30b.next_to(c20b, UP, buff=0.5)
+        c31b.next_to(c30b, RIGHT, buff=0.5)
+        c32b.next_to(c31b, RIGHT, buff=0.5)
+        c33b.next_to(c32b, RIGHT, buff=0.5)
 
         c01w.next_to(c11w, DOWN, buff=0.5)
         c00w.next_to(c01w, LEFT, buff=0.5)
@@ -80,6 +100,10 @@ class FlipCounters(Scene):
         c22w.next_to(c21w, RIGHT, buff=0.5) 
         c13w.next_to(c12w, RIGHT, buff=0.5)
         c23w.next_to(c13w, UP, buff=0.5)
+        c30w.next_to(c20w, UP, buff=0.5)
+        c31w.next_to(c30w, RIGHT, buff=0.5)
+        c32w.next_to(c31w, RIGHT, buff=0.5)
+        c33w.next_to(c32w, RIGHT, buff=0.5)
 
         b01.next_to(b11, DOWN, buff=0)
         b00.next_to(b01, LEFT, buff=0)
@@ -92,7 +116,10 @@ class FlipCounters(Scene):
         b22.next_to(b21, RIGHT, buff=0)
         b23.next_to(b22, RIGHT, buff=0)
         b13.next_to(b23, DOWN, buff=0)
-
+        b30.next_to(b20, UP, buff=0)
+        b31.next_to(b30, RIGHT, buff=0)
+        b32.next_to(b31, RIGHT, buff=0)
+        b33.next_to(b32, RIGHT, buff=0)
 
         # Animations
         self.play(Create(b11))
@@ -101,13 +128,16 @@ class FlipCounters(Scene):
         self.play(Create(b10))
         self.play(Create(b02))
         self.play(Create(b03))
-        self.play(Create(b13))
         self.play(Create(b12))
+        self.play(Create(b13))
         self.play(Create(b22))
         self.play(Create(b21))
         self.play(Create(b23))
         self.play(Create(b20))
-    
+        self.play(Create(b30))
+        self.play(Create(b31))
+        self.play(Create(b32))
+        self.play(Create(b33))
 
         self.play(Create(c11b))
         self.play(Create(c01b))
@@ -121,24 +151,73 @@ class FlipCounters(Scene):
         self.play(Create(c22b))
         self.play(Create(c23b))
         self.play(Create(c20b))
+        self.play(Create(c30b))
+        self.play(Create(c31b))
+        self.play(Create(c32b))
+        self.play(Create(c33b))
 
-        self.play(Transform(c00b, c00w))
-        self.play(Transform(c10b, c10w))
-        self.play(Transform(c01b, c01w))
-        self.play(Transform(c11b, c11w))
+        self.play(FadeOut(c00b), run_time = 0.2)
+        self.play(FadeIn(c00w), run_time = 0.2)
+        self.play(FadeOut(c10b), run_time = 0.2)
+        self.play(FadeIn(c10w), run_time = 0.2)
+        self.play(FadeOut(c01b), run_time = 0.2)
+        self.play(FadeIn(c01w), run_time = 0.2)
+        self.play(FadeOut(c11b), run_time = 0.2)
+        self.play(FadeIn(c11w), run_time = 0.2)
 
         self.wait()
 
-        self.play(Transform(c11w, c11b))
-        self.play(Transform(c01w, c01b))
-        self.play(Transform(c12b, c12w))
-        self.play(Transform(c02b, c02w))
+        self.play(FadeOut(c11w), run_time = 0.2)
+        self.play(FadeIn(c11b), run_time = 0.2)
+        self.play(FadeOut(c01w), run_time = 0.2)
+        self.play(FadeIn(c01b), run_time = 0.2)
+        self.play(FadeOut(c12b), run_time = 0.2)
+        self.play(FadeIn(c12w), run_time = 0.2)
+        self.play(FadeOut(c02b), run_time = 0.2)
+        self.play(FadeIn(c02w), run_time = 0.2)
 
         self.wait()
 
-        self.play(Transform(c10w, c10b))
-        self.play(Transform(c11b, c11w))
-        self.play(Transform(c20b, c20w))
-        self.play(Transform(c21b, c21w))
+        self.play(FadeOut(c10w), run_time = 0.2)
+        self.play(FadeIn(c10b), run_time = 0.2)
+        self.play(FadeOut(c11b), run_time = 0.2)
+        self.play(FadeIn(c11w), run_time = 0.2)
+        self.play(FadeOut(c20b), run_time = 0.2)
+        self.play(FadeIn(c20w), run_time = 0.2)
+        self.play(FadeOut(c21b), run_time = 0.2)
+        self.play(FadeIn(c21w), run_time = 0.2)
+
+        self.wait()
+
+        self.play(FadeOut(c21w), run_time = 0.2)
+        self.play(FadeIn(c21b), run_time = 0.2)
+        self.play(FadeOut(c22b), run_time = 0.2)
+        self.play(FadeIn(c22w), run_time = 0.2)
+        self.play(FadeOut(c32b), run_time = 0.2)
+        self.play(FadeIn(c32w), run_time = 0.2)
+        self.play(FadeOut(c31b), run_time = 0.2)
+        self.play(FadeIn(c31w), run_time = 0.2)
+
+        self.wait()
+
+        self.play(FadeOut(c12w), run_time = 0.2)
+        self.play(FadeIn(c12b), run_time = 0.2)
+        self.play(FadeOut(c13b), run_time = 0.2)
+        self.play(FadeIn(c13w), run_time = 0.2)
+        self.play(FadeOut(c22w), run_time = 0.2)
+        self.play(FadeIn(c22b), run_time = 0.2)
+        self.play(FadeOut(c23b), run_time = 0.2)
+        self.play(FadeIn(c23w), run_time = 0.2)
+
+        self.wait()
+
+        self.play(FadeOut(c32w), run_time = 0.2)
+        self.play(FadeIn(c32b), run_time = 0.2)
+        self.play(FadeOut(c33b), run_time = 0.2)
+        self.play(FadeIn(c33w), run_time = 0.2)
+        self.play(FadeOut(c22b), run_time = 0.2)
+        self.play(FadeIn(c22w), run_time = 0.2)
+        self.play(FadeOut(c23w), run_time = 0.2)
+        self.play(FadeIn(c23b), run_time = 0.2)
 
         # self.play(FadeOut(b11))
