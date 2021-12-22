@@ -18,6 +18,8 @@ class FlipCounters(Scene):
         RT_FAST = 0.001
         RT_FLIP_DELAY = 0.2
 
+        FONT_SIZE = 20
+
         # Objects
         c00b = Circle(radius=C_RADIUS, color=BLACK, fill_opacity=OPACITY_SOLID)
         c00w = Circle(radius=C_RADIUS, color=WHITE, fill_opacity=OPACITY_SOLID)
@@ -170,7 +172,7 @@ class FlipCounters(Scene):
         bbox = Square(side_length=BOX_SMALL * 2, color=YELLOW, fill_opacity=TRANSPARENT)
 
         # Add a text description
-        step1 = Text("Step 1", color=BLACK, font_size=14).to_edge(UL, buff=0.7)
+        step1 = Text("Step 1", color=BLACK, font_size=FONT_SIZE).to_edge(UL, buff=2)
         self.play(Write(step1))
 
         bbox = bbox.shift(LEFT*1.5).shift(DOWN*1.5)
@@ -186,15 +188,16 @@ class FlipCounters(Scene):
         self.play(FadeOut(c01b), run_time=RT_FLIP_DELAY)
         self.play(FadeIn(c01w),  run_time=RT_FLIP_DELAY)
 
-        self.wait()
         self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
+        bbox = bbox.shift(RIGHT*1.5)
 
-        step2 = Text("Step 2", color=BLACK, font_size=14)
+        step2 = Text("Step 2", color=BLACK, font_size=FONT_SIZE)
         step2.next_to(step1, DOWN, buff=0.5)
         self.play(Write(step2))
 
-        bbox = bbox.shift(RIGHT*1.5)
         self.play(FadeIn(bbox), run_time=RT_FLIP_DELAY)
+
+        self.wait()
 
         self.play(FadeOut(c11w), run_time=RT_FLIP_DELAY)
         self.play(FadeIn(c11b),  run_time=RT_FLIP_DELAY)
@@ -205,49 +208,86 @@ class FlipCounters(Scene):
         self.play(FadeOut(c02b), run_time=RT_FLIP_DELAY)
         self.play(FadeIn(c02w),  run_time=RT_FLIP_DELAY)
 
+        self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
+        bbox = bbox.shift(LEFT*1.5).shift(UP*1.5)
+
+        step3 = Text("Step 3", color=BLACK, font_size=FONT_SIZE)
+        step3.next_to(step2, DOWN, buff=0.5)
+        self.play(Write(step3))
+
+        self.play(FadeIn(bbox), run_time=RT_FLIP_DELAY)
+
         self.wait()
+
+        self.play(FadeOut(c10w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c10b),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c11b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c11w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c20b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c20w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c21b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c21w),  run_time=RT_FLIP_DELAY)
+
+        self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
+        bbox = bbox.shift(RIGHT*1.5).shift(UP*1.5)
+
+        step4 = Text("Step 4", color=BLACK, font_size=FONT_SIZE)
+        step4.next_to(step3, DOWN, buff=0.5)
+        self.play(Write(step4))
+
+        self.play(FadeIn(bbox), run_time=RT_FLIP_DELAY)
+
+        self.wait()
+
+        self.play(FadeOut(c21w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c21b),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c22b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c22w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c32b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c32w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c31b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c31w),  run_time=RT_FLIP_DELAY)
+
+        self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
+        bbox = bbox.shift(RIGHT*1.5).shift(DOWN*1.5)
+
+        step5 = Text("Step 5", color=BLACK, font_size=FONT_SIZE)
+        step5.next_to(step4, DOWN, buff=0.5)
+        self.play(Write(step5))
+
+        self.play(FadeIn(bbox), run_time=RT_FLIP_DELAY)
+
+        self.wait()
+
+        self.play(FadeOut(c12w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c12b),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c13b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c13w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c22w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c22b),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c23b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c23w),  run_time=RT_FLIP_DELAY)
+
+        self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
+        bbox = bbox.shift(UP*1.5)
+
+        step6 = Text("Step 6", color=BLACK, font_size=FONT_SIZE)
+        step6.next_to(step5, DOWN, buff=0.5)
+        self.play(Write(step6))
+
+        self.play(FadeIn(bbox), run_time=RT_FLIP_DELAY)
+
+        self.wait()
+
+        self.play(FadeOut(c32w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c32b),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c33b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c33w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c22b), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c22w),  run_time=RT_FLIP_DELAY)
+        self.play(FadeOut(c23w), run_time=RT_FLIP_DELAY)
+        self.play(FadeIn(c23b),  run_time=RT_FLIP_DELAY)
+
         self.play(FadeOut(bbox), run_time=RT_FLIP_DELAY)
 
-        # self.play(FadeOut(c10w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c10b),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c11b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c11w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c20b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c20w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c21b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c21w),  run_time=RT_FLIP_DELAY)
-
         self.wait()
-
-        # self.play(FadeOut(c21w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c21b),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c22b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c22w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c32b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c32w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c31b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c31w),  run_time=RT_FLIP_DELAY)
-
-        self.wait()
-
-        # self.play(FadeOut(c12w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c12b),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c13b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c13w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c22w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c22b),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c23b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c23w),  run_time=RT_FLIP_DELAY)
-
-        self.wait()
-
-        # self.play(FadeOut(c32w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c32b),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c33b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c33w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c22b), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c22w),  run_time=RT_FLIP_DELAY)
-        # self.play(FadeOut(c23w), run_time=RT_FLIP_DELAY)
-        # self.play(FadeIn(c23b),  run_time=RT_FLIP_DELAY)
-
-        # self.play(FadeOut(b11))
