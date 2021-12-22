@@ -169,7 +169,7 @@ class FlipCounters(Scene):
         self.play(Create(c33b), run_time=RT_FAST)
 
         # A big box for highlighting the flip
-        bbox = Square(side_length=BOX_SMALL * 2, color=YELLOW, fill_opacity=TRANSPARENT)
+        bbox = Square(side_length=BOX_SMALL * 2, color=PURE_RED, fill_opacity=TRANSPARENT)
 
         # Add a text description
         step1 = Text("Step 1", color=BLACK, font_size=FONT_SIZE).to_edge(UL, buff=2)
