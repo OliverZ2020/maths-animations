@@ -155,6 +155,7 @@ class FlipCounters(Scene):
         self.play(Create(c31b))
         self.play(Create(c32b))
         self.play(Create(c33b))
+        
 
         self.play(FadeOut(c00b), run_time = 0.2)
         self.play(FadeIn(c00w), run_time = 0.2)
